@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<name>ico4jfx</name>
+	<artifactId>ico4jfx</artifactId>
+	<groupId>com.github.russ-p</groupId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<description>Support reading ICO-files for JavaFX (based on image4j implementation) without AWT</description>
+
+	<url>https://github.com/russ-p/</url>
+
+	<licenses>
+		<license>
+			<name>GPL</name>
+			<url>https://api.github.com/licenses/lgpl-3.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>https://github.com/russ-p</name>
+		<url>https://github.com/russ-p</url>
+	</organization>
+
+	<scm>
+		<url>https://github.com/russ-p/</url>
+		<connection>git@github.com:russ-p/ico4jfx.git</connection>
+		<developerConnection>git@github.com:russ-p/ico4jfx.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>Issues</system>
+		<url>https://github.com/russ-p/ico4jfx/issues</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Pipelines</system>
+		<url>https://github.com/russ-p/ico4jfx/pipelines</url>
+	</ciManagement>
+
+
+	<developers>
+		<developer>
+			<id>russ-p</id>
+			<email>penkrat@gmail.com</email>
+			<name>Ruslan Penkrat</name>
+			<organization>Private Person</organization>
+			<organizationUrl>https://penkrat.ru/ruslan/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>Europe/Minsk</timezone>
+		</developer>
+       <developer>
+             <id>ianmcdonagh</id>
+             <name>Ian McDonagh</name>
+             <email>ianmcdonagh@sourceforge.net</email>
+             <roles>
+                 <role>lead</role>
+                 <role>developer</role>
+             </roles>
+       </developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<main.class>com.github.russdashp.ico4jfx.HelloWorld</main.class>
+		<java.version>11</java.version>
+		<junit.jupiter.version>5.4.2</junit.jupiter.version>
+		<maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+		<maven.jar.plugin.version>3.1.1</maven.jar.plugin.version>
+		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+		<javafx.version>14.0.1</javafx.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>${main.class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
